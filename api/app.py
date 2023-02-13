@@ -9,10 +9,13 @@ app = FastAPI()
 BOOK_URL = "https://www.kinokuniya.co.jp/disp/CSfDispListPage_001.jsp?qs=true&ptk=01&q=湊かなえ" #今回はサンプルデータとして湊かなえの本を複数検索
 
 #Invoke-RestMethod -Uri "http://localhost:8002" -Method GET (windows power shell)
+#curl -X GET "http://localhost:8002"
 @app.get("/")
 def index():
     return {"Hello" : "World!!!"}
 
+#Invoke-RestMethod -Uri "http://localhost:8002/dummy_data" -Method GET (windows power shell)
+#curl -X GET "http://localhost:8002/dummy_data"
 @app.get("/dummy_data")
 def index():
     res = requests.get(BOOK_URL)
@@ -58,4 +61,5 @@ def index():
     pd.set_option('display.unicode.east_asian_width', True)
     df = pd.io.json.json_normalize(books)
     df.to_csv('data/result.csv')
-    return None
+
+    return "Done."
