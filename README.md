@@ -13,3 +13,4 @@ elastic searchを使用し、本のあらすじなどから探したい本を見
 kibanaはクエリを飛ばす際に検証として使用する。
 
 -2023/02/10-
+# elastic_search
